@@ -1,66 +1,302 @@
-## Foundry
+# Blockchain Voting Network
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## 📑 Table of Contents
 
-Foundry consists of:
+* [Overview](#-overview)
+* [Features](#-features)
+* [Architecture](#-architecture)
+* [Technology Stack](#-technology-stack)
+* [Smart Contract Design](#-smart-contract-design)
+* [Data Model](#-data-model)
+* [Contract Functions](#-contract-functions)
+* [Project Structure](#-project-structure)
+* [Installation](#-installation)
+* [Deployment](#-deployment)
+* [Testing](#-testing)
+* [Security Considerations](#-security-considerations)
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+---
 
-## Documentation
+# 📖 Overview
 
-https://book.getfoundry.sh/
+Traditional voting systems often suffer from a lack of transparency, centralized control, and limited auditability.
 
-## Usage
+This project leverages blockchain technology to provide:
 
-### Build
+* Immutable election records
+* Transparent vote counting
+* Decentralized verification
+* One-vote-per-election enforcement
+* On-chain election results
 
-```shell
-$ forge build
+Every vote is permanently recorded on-chain and can be independently verified.
+
+---
+
+# ✨ Features
+
+| Feature                | Description                                                         |
+| ---------------------- | ------------------------------------------------------------------- |
+| Election Creation      | Administrators can create elections with custom start and end times |
+| Candidate Management   | Candidates can be reused across multiple elections                  |
+| One Vote Per Election  | Prevents duplicate voting within the same election                  |
+| Multi-Election Support | Users may vote once in each election                                |
+| On-Chain Vote Counting | Vote totals are stored and calculated on-chain                      |
+| Transparent Results    | Anyone can verify election outcomes                                 |
+| Time-Based Elections   | Elections automatically transition through lifecycle states         |
+
+---
+
+# 🏗️ Architecture
+
+```text
+                    ┌────────────────────┐
+                    │    Election Owner  │
+                    └──────────┬─────────┘
+                               │
+                 ┌─────────────▼─────────────┐
+                 │      Voting Contract      │
+                 └─────────────┬─────────────┘
+                               │
+          ┌────────────────────┼────────────────────┐
+          │                    │                    │
+          ▼                    ▼                    ▼
+   Elections            Candidates            Vote Records
+          │                    │                    │
+          └────────────┬───────┴────────────┬───────┘
+                       ▼                    ▼
+                Election-Candidate     Voter Status
+                    Mapping             Tracking
 ```
 
-### Test
+---
 
-```shell
-$ forge test
+
+# 📜 Smart Contract Design
+
+## Election
+
+```solidity
+struct Election {
+    uint256 id;
+    string title;
+    uint256 startTime;
+    uint256 endTime;
+}
 ```
 
-### Format
+Represents a voting event with a unique identifier and active voting period.
 
-```shell
-$ forge fmt
+---
+
+## Candidate
+
+```solidity
+struct Candidate {
+    uint256 id;
+    string name;
+}
 ```
 
-### Gas Snapshots
+Candidates are stored independently and may participate in multiple elections.
 
-```shell
-$ forge snapshot
+---
+
+## Election Result
+
+```solidity
+struct ElectionResult {
+    uint256 candidateId;
+    uint256 voteCount;
+}
 ```
 
-### Anvil
+Used for retrieving election results efficiently.
 
-```shell
-$ anvil
+---
+
+# 🗄 Data Model
+
+## Elections
+
+```text
+Election ID
+    │
+    ▼
+Election Data
 ```
 
-### Deploy
+---
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+## Candidates
+
+```text
+Candidate ID
+    │
+    ▼
+Candidate Data
 ```
 
-### Cast
+---
 
-```shell
-$ cast <subcommand>
+## Election Participation
+
+```text
+Election 1
+ ├── Candidate 1
+ ├── Candidate 2
+ └── Candidate 3
+
+Election 2
+ ├── Candidate 1
+ └── Candidate 4
 ```
 
-### Help
+---
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+## Voting Records
+
+```text
+Election ID
+    │
+    ▼
+Wallet Address
+    │
+    ▼
+Has Voted?
 ```
+
+This structure guarantees:
+
+* One vote per wallet per election
+* Multiple elections supported
+* Candidate reusability
+
+---
+
+# ⚙ Contract Functions
+
+## Administration
+
+| Function                 | Purpose                      |
+| ------------------------ | ---------------------------- |
+| createCandidate()        | Create a new candidate       |
+| createElection()         | Create a new election        |
+| addCandidateToElection() | Assign candidate to election |
+
+---
+
+## Voting
+
+| Function | Purpose     |
+| -------- | ----------- |
+| vote()   | Cast a vote |
+
+---
+
+## Queries
+
+| Function                  | Purpose                        |
+| ------------------------- | ------------------------------ |
+| getElectionById()         | Retrieve election information  |
+| getCandidateById()        | Retrieve candidate information |
+| getElectionCandidateIds() | Retrieve election candidates   |
+| getVoteCount()            | Retrieve vote totals           |
+| getElectionResults()      | Retrieve all election results  |
+| userHasVoted()            | Check voter status             |
+| getElectionStatus()       | Get election lifecycle state   |
+
+---
+
+# 📂 Project Structure
+
+```text
+.
+├── src/
+│   └── Voting.sol
+│
+├── scripts/
+│   ├── VotingDeploy.s.sol
+│   └── Interactions.s.sol
+│
+├── test/
+│   └── Voting.t.sol
+│
+├── lib/
+│
+├── foundry.toml
+└── README.md
+```
+
+---
+
+# 🚀 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Aniket-Roy22/Blockchain-Voting-Network.git
+```
+
+```bash
+cd Blockchain-Voting-Network
+```
+
+Install Foundry dependencies:
+
+```bash
+forge install
+```
+
+Build:
+
+```bash
+forge build
+```
+
+---
+
+# 🚀 Deployment
+
+Deployed at: [Contract Address](https://sepolia.etherscan.io/address/0x4e7AfE65A8F403005178E07B5cF64D2fb18ff7f8)
+
+---
+
+# 🧪 Testing
+
+Run the complete test suite:
+
+```bash
+forge test
+```
+
+Verbose output:
+
+```bash
+forge test -vvv
+```
+
+Gas report:
+
+```bash
+forge test --gas-report
+```
+
+Coverage:
+
+```bash
+forge coverage
+```
+
+---
+
+# 🔒 Security Considerations
+
+| Consideration             | Status |
+| ------------------------- | ------ |
+| Ownership Protection      | ✅      |
+| Double Voting Prevention  | ✅      |
+| Election Time Validation  | ✅      |
+| Candidate Validation      | ✅      |
+| Election Validation       | ✅      |
+| Transparent Vote Counting | ✅      |
