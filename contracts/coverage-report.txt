@@ -1,0 +1,35 @@
+Compiling 21 files with Solc 0.8.33
+Solc 0.8.33 finished in 950.55ms
+Compiler run successful!
+Analysing contracts...
+Running tests...
+
+Ran 17 tests for test/Voting.t.sol:VotingTest
+[PASS] testAddCandidateToElection() (gas: 269927)
+[PASS] testCanVoteDuringElection() (gas: 417345)
+[PASS] testCannotAddSameCandidateTwice() (gas: 269911)
+[PASS] testCannotVoteAfterElectionEnds() (gas: 368200)
+[PASS] testCannotVoteBeforeElectionStarts() (gas: 367424)
+[PASS] testCannotVoteForNonParticipatingCandidate() (gas: 420548)
+[PASS] testCannotVoteTwice() (gas: 417192)
+[PASS] testCreateCandidate() (gas: 84280)
+[PASS] testCreateElection() (gas: 134594)
+[PASS] testElectionResults() (gas: 499929)
+[PASS] testElectionStatusActive() (gas: 131772)
+[PASS] testElectionStatusEnded() (gas: 131742)
+[PASS] testElectionStatusUpcoming() (gas: 130910)
+[PASS] testMultipleUsersCanVote() (gas: 497224)
+[PASS] testOnlyOwnerCanAddCandidateToElection() (gas: 202142)
+[PASS] testOnlyOwnerCanCreateCandidate() (gas: 11731)
+[PASS] testOnlyOwnerCanCreateElection() (gas: 16512)
+Suite result: ok. 17 passed; 0 failed; 0 skipped; finished in 10.75ms (45.67ms CPU time)
+
+Ran 1 test suite in 17.90ms (10.75ms CPU time): 17 tests passed, 0 failed, 0 skipped (17 total tests)
+
+╭----------------+-----------------+-----------------+----------------+-----------------╮
+| File           | % Lines         | % Statements    | % Branches     | % Funcs         |
++=======================================================================================+
+| src/Voting.sol | 100.00% (55/55) | 100.00% (44/44) | 80.95% (17/21) | 100.00% (14/14) |
+|----------------+-----------------+-----------------+----------------+-----------------|
+| Total          | 100.00% (55/55) | 100.00% (44/44) | 80.95% (17/21) | 100.00% (14/14) |
+╰----------------+-----------------+-----------------+----------------+-----------------╯
