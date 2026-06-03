@@ -61,6 +61,31 @@ contract ReadCandidate is VotingInteractionBase {
     }
 }
 
+contract ReadElectionResults is VotingInteractionBase {
+    function run() external view {
+        Voting voting = getVoting();
+
+        uint256 electionId = 1;
+
+        Voting.ElectionResult[] memory results = voting.getElectionResults(
+            electionId
+        );
+
+        console2.log("Election Results");
+        console2.log("----------------");
+
+        for (uint256 i; i < results.length; i++) {
+            Voting.Candidate memory candidate = voting.getCandidateById(
+                results[i].candidateId
+            );
+
+            console2.log("Candidate :", candidate.name);
+            console2.log("Votes: ", results[i].voteCount);
+            console2.log("----------------");
+        }
+    }
+}
+
 contract SetupElection is VotingInteractionBase {
     function run() external {
         Voting voting = getVoting();
