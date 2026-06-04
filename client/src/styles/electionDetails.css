@@ -1,0 +1,144 @@
+.election-details {
+	max-width: 100%;
+	margin: 0;
+	padding: 2rem 4rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.election-details .election-header {
+	margin-bottom: 1.5rem;
+	color: var(--text);
+}
+
+.election-details .election-header h1 {
+	font-size: 2.75rem;
+	margin-bottom: 1.5rem;
+}
+
+.election-details .election-header .election-meta {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.election-details .election-header .election-meta .meta-card {
+	padding: 1rem 0 0;
+	margin: 0 auto;
+	border: 1px solid var(--details);
+	border-radius: 12px;
+
+	min-width: 250px;
+}
+
+.election-details .election-header .election-meta .meta-card span {
+	opacity: 0.8;
+}
+
+.election-details .election-header .election-meta .meta-card p {
+	margin-top: 0.5rem;
+	font-weight: 600;
+}
+
+.election-details .candidates-section h2 {
+	margin-bottom: 1.5rem;
+	color: var(--text);
+}
+
+.election-details .candidates-section .candidates-grid {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.election-details .candidates-section .candidate-card {
+	padding: 1.5rem;
+	width: 10rem;
+	border-radius: 14px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	background: var(--secondary);
+
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.election-details .candidates-section .candidate-card:hover {
+	transform: translateY(-3px);
+
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.election-details .candidates-section .candidate-card .candidate-id {
+	align-self: flex-start;
+
+	padding: 0.35rem 0.75rem;
+
+	border-radius: 999px;
+
+	background: #3c502855;
+
+	font-size: 0.85rem;
+	font-weight: 600;
+}
+
+.election-details .candidates-section .candidate-card h3 {
+	margin: 0;
+	font-size: 1.2rem;
+}
+
+.election-details .candidates-section .candidate-card button {
+	margin-top: auto;
+
+	padding: 0.85rem;
+
+	border: none;
+	border-radius: 8px;
+
+	background: var(--primary);
+	color: var(--text);
+
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.election-details .candidates-section .candidate-card .voted-badge {
+	margin-top: auto;
+
+	padding: 0.85rem;
+
+	text-align: center;
+
+	border-radius: 8px;
+
+	background: #3c502855;
+	color: var(--primary);
+
+	font-weight: 600;
+}
+
+.election-details .results-link {
+	margin-top: 3rem;
+	text-align: center;
+}
+
+.election-details .results-link a {
+	display: inline-block;
+
+	padding: 1rem 1.5rem;
+
+	border-radius: 8px;
+
+	background: var(--secondary);
+	color: var(--primary);
+
+	text-decoration: none;
+	font-weight: 600;
+}

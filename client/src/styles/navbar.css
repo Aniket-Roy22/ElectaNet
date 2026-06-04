@@ -1,0 +1,61 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 1rem 2rem;
+
+	background-color: var(--secondary);
+	color: var(--primary);
+
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+.navbar .navbar-left .logo {
+	font-size: 1.25rem;
+	font-weight: 700;
+	text-decoration: none;
+	color: var(--primary);
+}
+
+.navbar .navbar-center {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.navbar .navbar-center a {
+	text-decoration: none;
+	color: var(--details);
+	font-weight: 500;
+
+	transition: color 0.2s ease;
+}
+
+.navbar .navbar-center a:hover {
+	color: var(--primary);
+}
+
+.navbar .navbar-right button {
+	padding: 0.75rem 1rem;
+
+	border: none;
+	border-radius: 8px;
+
+	background-color: var(--primary);
+	color: var(--text);
+
+	font-family: "Nunito", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: normal;
+	cursor: pointer;
+
+	transition: opacity 0.2s ease;
+}
+
+.navbar .navbar-right button:hover {
+	opacity: 0.9;
+}

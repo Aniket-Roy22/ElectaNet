@@ -1,0 +1,114 @@
+.home {
+	max-width: 100%;
+	margin: 0;
+	padding: 1rem 6rem 4rem;
+	color: var(--text);
+}
+
+.home .hero {
+	text-align: center;
+	padding: 5rem 0;
+}
+
+.home .hero h1 {
+	font-size: 3.5rem;
+	margin-bottom: 1rem;
+	color: var(--secondary);
+}
+
+.home .hero .hero-description {
+	max-width: 700px;
+	margin: 0 auto;
+	font-size: 1.2rem;
+	line-height: 1.7;
+	opacity: 0.8;
+	color: var(--text);
+}
+
+.home .hero .hero-actions {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 2rem;
+	flex-wrap: wrap;
+}
+
+.home .hero .hero-actions button {
+	padding: 0.75rem 1rem;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 1rem;
+	background-color: var(--secondary);
+
+	font-family: "Nunito", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: normal;
+}
+
+.home .hero .wallet-status {
+	padding: 0.85rem 1rem;
+	border-radius: 8px;
+	border: 1px solid var(--details);
+	color: var(--text);
+}
+
+.home .features {
+	margin-top: 5rem;
+}
+
+.home .features h2 {
+	text-align: center;
+	margin-bottom: 2rem;
+	font-size: 2rem;
+}
+
+.home .features .steps {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1.5rem;
+}
+
+.home .features .steps .step-card {
+	padding: 1.5rem;
+	border: 1px solid var(--details);
+	border-radius: 12px;
+}
+
+.home .features .steps .step-card h3 {
+	margin-bottom: 1rem;
+	color: var(--text);
+}
+
+.home .benefits {
+	margin-top: 5rem;
+}
+
+.home .benefits h2 {
+	text-align: center;
+	margin-bottom: 2rem;
+	font-size: 2rem;
+}
+
+.home .benefits .benefit-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1.5rem;
+}
+
+.home .benefits .benefit-grid .benefit-card {
+	padding: 1.5rem;
+	border: 1px solid var(--details);
+	border-radius: 12px;
+}
+
+.home .benefits .benefit-grid .benefit-card h3 {
+	margin-bottom: 1rem;
+}
+
+.home .benefits .benefit-grid .benefit-card p {
+	line-height: 1.6;
+	opacity: 0.85;
+}

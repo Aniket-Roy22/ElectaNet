@@ -1,0 +1,103 @@
+.elections-page {
+	max-width: 100%;
+	margin: 0;
+	padding: 2rem 4rem;
+}
+
+.elections-page .elections-header {
+	margin-bottom: 2rem;
+	color: var(--text);
+}
+
+.elections-page .elections-header h1 {
+	font-size: 2.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.elections-page .elections-header p {
+	opacity: 0.8;
+	font-size: 1.2rem;
+}
+
+.elections-page .elections-grid {
+	display: grid;
+
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+	gap: 1.5rem;
+}
+
+.elections-page .elections-grid .election-card {
+	padding: 1.5rem;
+
+	border-radius: 14px;
+
+	background: var(--secondary);
+
+	display: flex;
+	flex-direction: column;
+
+	gap: 1rem;
+
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.elections-page .elections-grid .election-card:hover {
+	transform: translateY(-3px);
+
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.elections-page .elections-grid .election-card .election-id {
+	align-self: flex-start;
+
+	padding: 0.35rem 0.75rem;
+
+	border-radius: 999px;
+
+	background: #3c502855;
+
+	font-size: 0.85rem;
+	font-weight: 600;
+}
+
+.elections-page .elections-grid .election-card h2 {
+	margin: 0;
+
+	font-size: 1.4rem;
+}
+
+.elections-page .elections-grid .election-card .election-dates {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.elections-page .elections-grid .election-card .election-dates p {
+	margin: 0;
+	color: var(--details);
+}
+
+.elections-page .elections-grid .election-card .open-election-btn {
+	margin-top: auto;
+
+	text-align: center;
+	text-decoration: none;
+
+	padding: 0.85rem 1rem;
+
+	border-radius: 8px;
+
+	background: var(--primary);
+	color: var(--text);
+
+	font-weight: 600;
+
+	transition: opacity 0.2s ease;
+}
+
+.elections-page .elections-grid .election-card .open-election-btn:hover {
+	opacity: 0.9;
+}
