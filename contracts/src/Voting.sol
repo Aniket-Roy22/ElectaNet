@@ -127,6 +127,10 @@ contract Voting {
         return sElectionCount;
     }
 
+    function getCandidateCount() external view returns (uint256) {
+        return sCandidateCount;
+    }
+
     function getCandidateById(
         uint256 _candidateId
     ) external view returns (Candidate memory) {
