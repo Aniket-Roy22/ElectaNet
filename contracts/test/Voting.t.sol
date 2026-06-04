@@ -3,11 +3,11 @@ pragma solidity ^0.8.33;
 
 import {Test} from "forge-std/Test.sol";
 import {Voting, Voting__NotOwner} from "../src/Voting.sol";
+import {VotingDeploy} from "../script/VotingDeploy.s.sol";
 
 contract VotingTest is Test {
     Voting voting;
 
-    address OWNER = makeAddr("owner");
     address USER_1 = makeAddr("user1");
     address USER_2 = makeAddr("user2");
     address USER_3 = makeAddr("user3");
@@ -16,15 +16,18 @@ contract VotingTest is Test {
     uint256 END_TIME;
 
     function setUp() external {
-        vm.startPrank(OWNER);
-        voting = new Voting();
-        vm.stopPrank();
+        VotingDeploy votingDeploy = new VotingDeploy();
+		voting = votingDeploy.run();
 
         START_TIME = block.timestamp + 1 hours;
         END_TIME = block.timestamp + 7 days;
     }
 
     // Owner Tests
+
+	function testOwnerIsMsgSender() public view {
+		assertEq(voting.getOwner(), msg.sender);
+	}
 
     function testOnlyOwnerCanCreateCandidate() public {
         vm.prank(USER_1);
@@ -43,7 +46,7 @@ contract VotingTest is Test {
     }
 
     function testOnlyOwnerCanAddCandidateToElection() public {
-		vm.startPrank(OWNER);
+		vm.startPrank(msg.sender);
         voting.createCandidate("Alice");
 
         voting.createElection("Election", START_TIME, END_TIME);
@@ -59,7 +62,7 @@ contract VotingTest is Test {
     // Candidate Creation
 
     function testCreateCandidate() public {
-		vm.prank(OWNER);
+		vm.prank(msg.sender);
         voting.createCandidate("Alice");
 
         Voting.Candidate memory candidate = voting.getCandidateById(1);
@@ -71,7 +74,7 @@ contract VotingTest is Test {
     // Election Creation
 
     function testCreateElection() public {
-		vm.prank(OWNER);
+		vm.prank(msg.sender);
         voting.createElection("Student Council", START_TIME, END_TIME);
 
         Voting.Election memory election = voting.getElectionById(1);
@@ -85,7 +88,7 @@ contract VotingTest is Test {
     // Add Candidate to Election
 
     function testAddCandidateToElection() public {
-		vm.startPrank(OWNER);
+		vm.startPrank(msg.sender);
         voting.createCandidate("Alice");
 
         voting.createElection("Election", START_TIME, END_TIME);
@@ -100,7 +103,7 @@ contract VotingTest is Test {
     }
 
     function testCannotAddSameCandidateTwice() public {
-		vm.startPrank(OWNER);
+		vm.startPrank(msg.sender);
         voting.createCandidate("Alice");
 
         voting.createElection("Election", START_TIME, END_TIME);
@@ -116,7 +119,7 @@ contract VotingTest is Test {
     // Voting
 
     function _setupElection() internal {
-        vm.startPrank(OWNER);
+        vm.startPrank(msg.sender);
         voting.createCandidate("Alice");
         voting.createCandidate("Bob");
 
@@ -173,7 +176,7 @@ contract VotingTest is Test {
     function testCannotVoteForNonParticipatingCandidate() public {
         _setupElection();
 
-		vm.prank(OWNER);
+		vm.prank(msg.sender);
         voting.createCandidate("Charlie");
 
         vm.warp(START_TIME + 1);
@@ -248,14 +251,14 @@ contract VotingTest is Test {
     // Election Status tests
 
     function testElectionStatusUpcoming() public {
-		vm.prank(OWNER);
+		vm.prank(msg.sender);
         voting.createElection("Election", START_TIME, END_TIME);
 
         assertEq(uint256(voting.getElectionStatus(1)), 0);
     }
 
     function testElectionStatusActive() public {
-		vm.prank(OWNER);
+		vm.prank(msg.sender);
         voting.createElection("Election", START_TIME, END_TIME);
 
         vm.warp(START_TIME + 1);
@@ -264,7 +267,7 @@ contract VotingTest is Test {
     }
 
     function testElectionStatusEnded() public {
-		vm.prank(OWNER);
+		vm.prank(msg.sender);
         voting.createElection("Election", START_TIME, END_TIME);
 
         vm.warp(END_TIME + 1);

@@ -1,35 +1,40 @@
-Compiling 21 files with Solc 0.8.33
-Solc 0.8.33 finished in 950.55ms
+Compiling 24 files with Solc 0.8.33
+Solc 0.8.33 finished in 3.43s
 Compiler run successful!
 Analysing contracts...
 Running tests...
 
-Ran 17 tests for test/Voting.t.sol:VotingTest
-[PASS] testAddCandidateToElection() (gas: 269927)
-[PASS] testCanVoteDuringElection() (gas: 417345)
-[PASS] testCannotAddSameCandidateTwice() (gas: 269911)
-[PASS] testCannotVoteAfterElectionEnds() (gas: 368200)
-[PASS] testCannotVoteBeforeElectionStarts() (gas: 367424)
-[PASS] testCannotVoteForNonParticipatingCandidate() (gas: 420548)
-[PASS] testCannotVoteTwice() (gas: 417192)
-[PASS] testCreateCandidate() (gas: 84280)
-[PASS] testCreateElection() (gas: 134594)
-[PASS] testElectionResults() (gas: 499929)
-[PASS] testElectionStatusActive() (gas: 131772)
-[PASS] testElectionStatusEnded() (gas: 131742)
-[PASS] testElectionStatusUpcoming() (gas: 130910)
-[PASS] testMultipleUsersCanVote() (gas: 497224)
-[PASS] testOnlyOwnerCanAddCandidateToElection() (gas: 202142)
+Ran 18 tests for test/Voting.t.sol:VotingTest
+[PASS] testAddCandidateToElection() (gas: 267813)
+[PASS] testCanVoteDuringElection() (gas: 415142)
+[PASS] testCannotAddSameCandidateTwice() (gas: 267775)
+[PASS] testCannotVoteAfterElectionEnds() (gas: 366086)
+[PASS] testCannotVoteBeforeElectionStarts() (gas: 365288)
+[PASS] testCannotVoteForNonParticipatingCandidate() (gas: 418298)
+[PASS] testCannotVoteTwice() (gas: 415078)
+[PASS] testCreateCandidate() (gas: 82144)
+[PASS] testCreateElection() (gas: 132480)
+[PASS] testElectionResults() (gas: 497793)
+[PASS] testElectionStatusActive() (gas: 129636)
+[PASS] testElectionStatusEnded() (gas: 129628)
+[PASS] testElectionStatusUpcoming() (gas: 128796)
+[PASS] testMultipleUsersCanVote() (gas: 495088)
+[PASS] testOnlyOwnerCanAddCandidateToElection() (gas: 200006)
 [PASS] testOnlyOwnerCanCreateCandidate() (gas: 11731)
 [PASS] testOnlyOwnerCanCreateElection() (gas: 16512)
-Suite result: ok. 17 passed; 0 failed; 0 skipped; finished in 10.75ms (45.67ms CPU time)
+[PASS] testOwnerIsMsgSender() (gas: 5975)
+Suite result: ok. 18 passed; 0 failed; 0 skipped; finished in 41.20ms (107.65ms CPU time)
 
-Ran 1 test suite in 17.90ms (10.75ms CPU time): 17 tests passed, 0 failed, 0 skipped (17 total tests)
+Ran 1 test suite in 83.09ms (41.20ms CPU time): 18 tests passed, 0 failed, 0 skipped (18 total tests)
 
-╭----------------+-----------------+-----------------+----------------+-----------------╮
-| File           | % Lines         | % Statements    | % Branches     | % Funcs         |
-+=======================================================================================+
-| src/Voting.sol | 100.00% (55/55) | 100.00% (44/44) | 80.95% (17/21) | 100.00% (14/14) |
-|----------------+-----------------+-----------------+----------------+-----------------|
-| Total          | 100.00% (55/55) | 100.00% (44/44) | 80.95% (17/21) | 100.00% (14/14) |
-╰----------------+-----------------+-----------------+----------------+-----------------╯
+╭---------------------------+-----------------+-----------------+----------------+-----------------╮
+| File                      | % Lines         | % Statements    | % Branches     | % Funcs         |
++==================================================================================================+
+| script/Interactions.s.sol | 0.00% (0/44)    | 0.00% (0/53)    | 100.00% (0/0)  | 0.00% (0/7)     |
+|---------------------------+-----------------+-----------------+----------------+-----------------|
+| script/VotingDeploy.s.sol | 100.00% (5/5)   | 100.00% (5/5)   | 100.00% (0/0)  | 100.00% (1/1)   |
+|---------------------------+-----------------+-----------------+----------------+-----------------|
+| src/Voting.sol            | 100.00% (57/57) | 100.00% (45/45) | 80.95% (17/21) | 100.00% (15/15) |
+|---------------------------+-----------------+-----------------+----------------+-----------------|
+| Total                     | 58.49% (62/106) | 48.54% (50/103) | 80.95% (17/21) | 69.57% (16/23)  |
+╰---------------------------+-----------------+-----------------+----------------+-----------------╯

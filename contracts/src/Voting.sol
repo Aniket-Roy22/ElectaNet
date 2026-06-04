@@ -194,6 +194,10 @@ contract Voting {
         return ElectionStatus.Ended;
     }
 
+    function getOwner() external view returns (address) {
+        return I_OWNER;
+    }
+
     // Modifiers
     modifier ownerOnly() {
         _ownerOnly();
