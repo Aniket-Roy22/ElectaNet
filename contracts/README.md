@@ -258,7 +258,7 @@ forge build
 
 # 🚀 Deployment
 
-Deployed at: [Contract Address](https://sepolia.etherscan.io/address/0x4e7AfE65A8F403005178E07B5cF64D2fb18ff7f8)
+Deployed at: [Contract Address](https://sepolia.etherscan.io/address/0x120b4fD9ab0C2A752832b378cE8eD24D957dA0a4)
 
 ---
 
