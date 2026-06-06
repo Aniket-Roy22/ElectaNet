@@ -10,7 +10,7 @@ function Navbar()
 		<nav className="navbar">
 			<div className="navbar-left">
 				<Link to="/" className="logo">
-					VoteChain
+					ElectaNet
 				</Link>
 			</div>
 
