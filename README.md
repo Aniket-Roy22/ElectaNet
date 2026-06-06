@@ -1,4 +1,4 @@
-# Blockchain Voting Network
+# ElectaNet
 
 A decentralized blockchain-based voting application built using Solidity, Foundry, React, Ethers.js, and MetaMask. The system allows an administrator to create elections, register candidates, assign candidates to elections, and enables users to cast secure on-chain votes through their wallets.
 
@@ -38,9 +38,6 @@ A decentralized blockchain-based voting application built using Solidity, Foundr
   * [4. Local Deployment](#4-local-deployment)
   * [5. Start Frontend](#5-start-frontend)
 * [Screenshots](#screenshots)
-* [Learning Outcomes](#learning-outcomes)
-* [Author](#author)
-
 ---
 
 # Tech Stack
@@ -410,32 +407,3 @@ http://localhost:5173
 ## Results Page
 
 ![Results](./screenshots/Results.png)
-
----
-
-# Learning Outcomes
-
-* Smart Contract Development with Solidity
-* Foundry Toolchain
-* Blockchain State Management
-* Smart Contract Deployment
-* MetaMask Integration
-* Ethers.js Contract Interaction
-* React Context API
-* Decentralized Application Architecture
-* On-Chain Data Retrieval
-* Event-Driven Frontend Updates
-
----
-
-# Author
-
-**Intern ID:** CITS730
-
-**Full Name:** Aniket Roy
-
-**No. of Weeks:** 4
-
-**Project Name:** Blockchain Voting Network
-
-**Project Scope:** The project aims to build a decentralized blockchain voting platform where administrators can create elections, register candidates, assign candidates to elections, and allow users to cast secure on-chain votes through MetaMask. The application demonstrates smart contract development, decentralized state management, wallet integration, and frontend-blockchain interaction using Solidity, Foundry, React, and Ethers.js.
