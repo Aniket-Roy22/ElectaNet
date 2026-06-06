@@ -1,4 +1,4 @@
-# Blockchain Voting Network
+# ElectaNet Contracts
 
 ## 📑 Table of Contents
 
