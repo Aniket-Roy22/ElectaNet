@@ -307,7 +307,7 @@ Only owners can:
 # 1. Clone Repository
 
 ```bash
-git clone https://github.com/Aniket-Roy22/Blockchain-Voting-Network.git
+git clone https://github.com/Aniket-Roy22/ElectaNet.git
 ```
 
 ---
